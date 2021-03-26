@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {createStructuredSelector} from 'reselect';
 
 import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg'
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
@@ -23,8 +24,8 @@ const CartIcon = ({toggleCartHidden, itemCount}) => (
 // and the output doesnt change
 // we DONT want to rerender our component
 
-const mapStateToProps = (state) => ({
-  itemCount: selectCartItemsCount(state)
+const mapStateToProps = createStructuredSelector({
+  itemCount: selectCartItemsCount
 })
 
 const mapDispatchToProps = (dispatch) => ({
